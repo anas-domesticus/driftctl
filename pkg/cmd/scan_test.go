@@ -170,7 +170,7 @@ func Test_parseOutputFlag(t *testing.T) {
 				out: "",
 			},
 			want: nil,
-			err:  fmt.Errorf("Unable to parse output flag '': \nAccepted formats are: console://,json://PATH/TO/FILE.json"),
+			err:  fmt.Errorf("Unable to parse output flag '': \nAccepted formats are: console://,html://PATH/TO/FILE.html,json://PATH/TO/FILE.json"),
 		},
 		{
 			name: "test invalid",
@@ -178,7 +178,7 @@ func Test_parseOutputFlag(t *testing.T) {
 				out: "sdgjsdgjsdg",
 			},
 			want: nil,
-			err:  fmt.Errorf("Unable to parse output flag 'sdgjsdgjsdg': \nAccepted formats are: console://,json://PATH/TO/FILE.json"),
+			err:  fmt.Errorf("Unable to parse output flag 'sdgjsdgjsdg': \nAccepted formats are: console://,html://PATH/TO/FILE.html,json://PATH/TO/FILE.json"),
 		},
 		{
 			name: "test invalid",
@@ -186,7 +186,7 @@ func Test_parseOutputFlag(t *testing.T) {
 				out: "://",
 			},
 			want: nil,
-			err:  fmt.Errorf("Unable to parse output flag '://': \nAccepted formats are: console://,json://PATH/TO/FILE.json"),
+			err:  fmt.Errorf("Unable to parse output flag '://': \nAccepted formats are: console://,html://PATH/TO/FILE.html,json://PATH/TO/FILE.json"),
 		},
 		{
 			name: "test unsupported",
@@ -194,7 +194,7 @@ func Test_parseOutputFlag(t *testing.T) {
 				out: "foobar://",
 			},
 			want: nil,
-			err:  fmt.Errorf("Unsupported output 'foobar': \nValid formats are: console://,json://PATH/TO/FILE.json"),
+			err:  fmt.Errorf("Unsupported output 'foobar': \nValid formats are: console://,html://PATH/TO/FILE.html,json://PATH/TO/FILE.json"),
 		},
 		{
 			name: "test empty json",
