@@ -68,10 +68,12 @@ func Test_ec2Repository_ListAllImages(t *testing.T) {
 				t.Fail()
 			}
 
-			// Check that results were cached
-			cachedData, err := r.ListAllImages()
-			assert.NoError(t, err)
-			assert.True(t, reflect.DeepEqual(got, cachedData))
+			if tt.wantErr == nil {
+				// Check that results were cached
+				cachedData, err := r.ListAllImages()
+				assert.NoError(t, err)
+				assert.True(t, reflect.DeepEqual(got, cachedData))
+			}
 		})
 	}
 }
